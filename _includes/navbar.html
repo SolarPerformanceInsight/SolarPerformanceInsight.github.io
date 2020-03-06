@@ -1,0 +1,36 @@
+<!-- Fixed navbar -->
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  
+  <div class="container">
+    <a class="navbar-brand" href="/">
+    {% if site.project_logo %}
+  	  <img src="{{ site.project_logo }}"/>
+  	{% else %}
+        {{ site.project_name }}
+  	{% endif %}
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        {% for item in site.data.navigation %}
+        <li class="nav-item active dropdown">
+		  {% if item.links %}
+		  <a id="drop-{{ item.name | downcase | replace: ' ', '-' }}" role="button" class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">{{ item.name }}</a>
+		   	<ul class="dropdown-menu subnav" role="menu" aria-labelledby="dLabel">
+			  {% for sub-item in item.links %}
+			  <li class="nav-item">
+			  	<a role="menuitem" tabindex="-1" href="{{ sub-item.link }}">{{ sub-item.name }}</a>
+			  </li>
+			  {% endfor %}
+			</ul>
+		  {% else %}
+          <a class="nav-link" href="{{ item.link }}">{{ item.name }}</a>
+		  {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</nav>

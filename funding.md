@@ -1,0 +1,14 @@
+---
+layout: base
+permalink: /funding/
+title: Funding
+---
+
+# Funding
+
+This work is funded in part or whole by the [U.S. Department of Energy Solar Energy Technologies Office](https://www.energy.gov/solar-office), under Award Number #####.
+View the project summary here: [Solar Performance Insight](https://www.energy.gov/eere/solar/https://www.energy.gov/eere/solar/seto-fy2019-balance-systems-soft-cost-reduction)
+
+## About the Solar Energy Technologies Office
+
+The U.S. Department of Energy Solar Energy Technologies Office supports early-stage research and development to improve the affordability, reliability, and performance of solar technologies on the grid. Learn more at [energy.gov/solar-office](https://energy.gov/solar-office).
