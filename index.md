@@ -21,6 +21,6 @@ Our project will build a performance modeling and analytics platform based on op
 -	Deliver modeling capabilities through a web-based dashboard and an API.
 
 # Funding
-See the [funding page](funding) for more information on the project's funding from the U.S. Department of Energy's Solar Energy Technology Office.
+See the [funding page](/funding) for more information on the project's funding from the U.S. Department of Energy's Solar Energy Technology Office.
 
 
