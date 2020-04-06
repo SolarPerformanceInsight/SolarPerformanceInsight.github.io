@@ -17,10 +17,9 @@ over a period of time. Currently, O&M service engineers must adapt their workflo
 are primarily designed to predict future performance, rather than model past performance.
 
 Our project will build a performance modeling and analytics platform based on open-source, extensible, community-maintained code. The project will benefit to the solar community through two primary outcomes:
--	Extending [pvlib-python]https://github.com/pvlib/pvlib-python.git) to easily model PV systems with greater detail.
+-	Extending [pvlib-python](https://github.com/pvlib/pvlib-python) to easily model PV systems with greater detail.
 -	Deliver modeling capabilities through a web-based dashboard and an API.
 
 # Funding
 See the [funding page](/funding) for more information on the project's funding from the U.S. Department of Energy's Solar Energy Technology Office.
-
 
