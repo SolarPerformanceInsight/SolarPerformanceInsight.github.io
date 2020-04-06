@@ -6,9 +6,9 @@ layout: base
 
 The Solar Performance Insight is an open source tool to enable evaluations of solar power plant performance.
 
-Sign up to recieve project updates by email.
+[Sign up](https://solarperformanceinsight.github.io/emaillist/) to recieve project updates by email.
 
-Our project will work directly with industry stakeholders to validate user stories, derive use cases and analytic requirements, and test the platform. Members of the solar community are invited to join the [Stakeholder Committee](/stakeholdercommittee) to provide guidance on project development.
+Members of the solar community are invited to join the [Stakeholder Committee](/stakeholdercommittee) to provide guidance on project development. 
 
 # Project Goals
 
@@ -19,6 +19,7 @@ are primarily designed to predict future performance, rather than model past per
 Our project will build a performance modeling and analytics platform based on open-source, extensible, community-maintained code. The project will benefit to the solar community through two primary outcomes:
 -	Extending [pvlib-python](https://github.com/pvlib/pvlib-python) to easily model PV systems with greater detail.
 -	Deliver modeling capabilities through a web-based dashboard and an API.
+We work directly with industry stakeholders to validate user stories, derive use cases and analytic requirements, and test the platform.
 
 # Funding
 See the [funding page](/funding) for more information on the project's funding from the U.S. Department of Energy's Solar Energy Technology Office.
