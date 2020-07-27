@@ -1,9 +1,11 @@
-- name: Team
-  link: /team/
-- name: Contact
-  link: /contact/
-- name: Funding
-  link: /funding/
+- name: About
+  links:
+  - name: Team
+    link: /about/team/
+  - name: Contact
+    link: /about/contact/
+  - name: Funding
+    link: /about/funding/
 
 - name: Publications
   link: /publications/
