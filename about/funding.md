@@ -1,6 +1,6 @@
 ---
 layout: base
-permalink: /funding/
+permalink: /about/funding/
 title: Funding
 ---
 
