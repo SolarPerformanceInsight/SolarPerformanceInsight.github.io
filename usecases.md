@@ -7,7 +7,7 @@ title: Use Cases
 
 {% include to_top.html %}
 
-## Purpose and Summary {#purpose}
+## Purpose {#purpose}
 {: .anchor }
 This document presents use cases and and functional requirements for the Solar Performance
 Insight (SPI) platform. A use case describes a sequence of actions to achieve a goal. A functional
@@ -23,19 +23,13 @@ The use case categories are:
 1. [Calculate Performance](#calculateperformance).
 2. [Compare Performance](#compareperformance).
 3. [Analyze Performance](#analyzeperformance).
-4. [Evaluate Sensors](#evaluatesensors).
+4. [Perform portfolio analysis](#portfolioanalysis)
 
 {:start="5"}
-Framework functional capabilities include:
-5. Provide performance models
-6. Import assumptions used in original modeling
-7. Import weather data from various sources
-8. Import snow/soiling data
-9. Import actual system performance data
-10. Import  data from on-site sensors
-11. Import irradiance data
-12. Administer the framework
-13. Archive data
+platform functional capabilities include:
+5. [Provide performance models](#performancemodels)
+6. [Upload data](#uploaddata)
+7. [Administer the platform](#administer)
 
 ## Definitions
 
@@ -119,7 +113,7 @@ the differences between actual weather and the weather conditions assumed for th
 **Use case narrative**: This use case assumes that the user has the original weather data
 used to predict performance, and has the predicted performance retained from the original simulations
 or has used an SPI model to calculate predicted performance (1.A) from the original weather data.
-The framework calculates expected performance from the actual weather. Comparing expected performance
+The platform calculates expected performance from the actual weather. Comparing expected performance
 to predicted performance requires adjusting the expected performance for the differences between
 actual weather and the weather conditions assumed for the predicted performance.
 
@@ -135,7 +129,7 @@ actual weather and the weather conditions assumed for the predicted performance.
 {: .anchor}
 
 **Use case narrative**: This use case assumes that the user is able to upload actual performance and actual
-weather data. The framework calculates expected performance from the actual weather. Calculated expected performance
+weather data. The platform calculates expected performance from the actual weather. Calculated expected performance
 provides a consistent reference for comparison with actual performance to help identify causes of under- or
 over-performance in the actual weather conditions.
 
@@ -164,6 +158,7 @@ can vary in complexity from a simple linear model as described in [1], to PVWatt
 {: .anchor}
 
 #### 3A. Disaggregate Sources of Performance Differences (stretch) {#uc3A}
+{: .anchor}
 
 **Use case narrative**: In the case where the user has uploaded actual performance data (9.0),
 determine which factors, e.g. snow and soiling (8.0), module degradation, explain the differences
@@ -178,6 +173,7 @@ between actual performance and original expectations (1.A or 1.B).
 - Platform provides a report for download.
 
 #### 3B. Evaluate Sensors (stretch) {#uc3B}
+{: .anchor}
 
 **Use case narrative**: Platform capabilities can be leveraged to evaluate consistency among sensors
 monitoring a PV system. For example, a plane-of-array (POA) irradiance sensor’s output should be roughly
@@ -193,3 +189,109 @@ can indicate sensor health and accuracy.
 - Platform compares data sources over each comparison period.
 - Platform provides metric values and visuals of comparison.
 - Platform provides a report for download.
+
+### 4. Perform portfolio analysis (stretch) {#uc4}
+{: .anchor}
+
+**Use case narrative**: In order for asset owners/managers and O&M providers to efficiently evaluate portfolios,
+users must be able to view results across the whole portfolio.
+
+**Requirements**:
+- Users can associate systems to a portfolio
+- Platform summarizes results for each system into a portfolio report
+- Platform provides a portfolio report for download.
+
+## Functional capabilities {#functionalcapabilities}
+
+### 5. Provide performance models {#performancemodels}
+{: .anchor}
+
+**Narrative**: The platform will offer several performance models at different levels of detail,
+The platform's performance models closely follow the models in common use in the PV industry,
+The SPI builds on the pvlib-python modeling library. The platform provides a public
+database of parameters for hardware such as modules.
+
+The NREL Performance Ratio and PVWatts models are simplest and will be implemented first.
+The PVsyst model chain will be implemented to the extent that the process models are in the public domain.
+The SAM/CEC performance model will be a stretch goal.
+
+**Requirements**:
+- Users can upload PV system metadata
+- Users can select from available performance models (specifically, from available preset pvlib ModelChain objects).
+- For each performance model, users can select process model options and provide model parameters.
+- The platform supplies functions to execute model chains.
+- Platform houses public databases of equipment and model parameters.
+
+### 6. Upload data {#uploaddata}
+{: .anchor}
+
+**Narrative**: Users must be able to upload or otherwise specify system metadata, modeling assumptions,
+model parameters and weather data.
+
+**Requirements**:
+- Users can specify system metadata to include:
+  - location and orientation (tilt, azimuth, tracking)
+  - equipment type and number (inverters, modules)
+  - System layout (number of sub-arrays, string length, strings per inverter)
+- Users can specify modeling assumptions to include selection from available process models at each step
+  in the model chain. Process models include irradiance translation and reflection, cell temperature,
+  irradiance to DC power conversion, DC to AC conversion, and loss models along the model chain, e.g.:
+  degradation, shading, soiling, snow, ohmic loss.
+- Users can provide parameters for process models. Where available, the platform provides default values
+  for process models.
+- The platform provides available, public databases of module and inverter model parameters.
+- Users can upload weather data.
+
+### 7. Administer the platform {#administer}
+{: .anchor}
+
+#### 7.A. Manage users and organizations {#uc7A}
+{: .anchor}
+
+**Narrative**: The platform administrator can manage users and organizations.
+
+**Requirements**:
+- Administrator can associate or disassociate users with organizations.
+- Administrator can enable data upload privileges based on email communication.
+- Administrator can reset user passwords.
+
+#### 7.B. Manage data {#uc7B}
+{: .anchor}
+
+**Narrative**: The platform administrator can manage data storage.
+
+**Requirements**:
+- Platform administrator can assign data storage limits.
+- Platform administrator can delete stored data.
+- Users can delete user-owned data.
+
+#### 7.C. Provide the platform API {#uc7C}
+{: .anchor}
+
+**Narrative**: The platform provides a documented API and appropriate services for client users.
+
+**Requirements**:
+- The platform’s API is documented on the platform website.
+- Users can interact with the platform via HTTP requests.
+- Users can request forecast evaluations via script (stretch).
+
+#### 7.D. Provide the platform web interface {#uc7D}
+{: .anchor}
+
+**Narrative**: The platform provides a documented user interface through a web site.
+
+**Requirements**:
+- The platform’s web interface is documented on the platform website.
+- Users can interact with the interface through menus, forms, and buttons.
+- Users can upload metadata and data through the interface.
+- Users can request performance evaluations using the interface.
+- Interface uses the API to communicate with platform server.
+
+#### 7.E. Protect user data {#uc7E}
+{: .anchor}
+
+**Narrative**: The platform protects user data.
+
+**Requirements**:
+- The data sharing agreement terms are posted on the platform website.
+- The platform provides user identification services (account management, password services).
