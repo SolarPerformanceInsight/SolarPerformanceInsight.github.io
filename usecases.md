@@ -26,7 +26,7 @@ The use case categories are:
 4. [Perform portfolio analysis](#portfolioanalysis)
 
 {:start="5"}
-platform functional capabilities include:
+Platform functional capabilities include:
 5. [Provide performance models](#performancemodels)
 6. [Upload data](#uploaddata)
 7. [Administer the platform](#administer)
