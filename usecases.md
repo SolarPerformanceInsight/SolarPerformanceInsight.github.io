@@ -23,13 +23,13 @@ The use case categories are:
 1. [Calculate Performance](#calculateperformance).
 2. [Compare Performance](#compareperformance).
 3. [Analyze Performance](#analyzeperformance).
-4. [Perform portfolio analysis](#portfolioanalysis)
+4. [Perform portfolio analysis](#portfolioanalysis).
 
 {:start="5"}
 Platform functional capabilities include:
-5. [Provide performance models](#performancemodels)
-6. [Upload data](#uploaddata)
-7. [Administer the platform](#administer)
+5. [Provide performance models](#performancemodels).
+6. [Upload data](#uploaddata).
+7. [Administer the platform](#administer).
 
 ## Definitions
 
@@ -49,28 +49,28 @@ user supplied modeling assumptions and actual weather data.
 #### 1.A. Calculate predicted performance {#uc1A}
 {: .anchor}
 
-**Use case narrative**: Using an SPI Performance Model (5.0) with user-provided modeling assumptions,
-user input system metadata (6.0), and user supplied weather data (7.0), calculate system output.
+**Use case narrative**: Using an SPI Performance Model [capability 5]](#uc5) with user-provided modeling assumptions,
+user input system metadata, and user supplied weather data [capability 6](#uc6), calculate system output.
 
 **Requirements**:
 
-- User can upload original modeling assumptions (5.0).
-- User can upload system metadata (6.0).
-- User can upload original weather data (7.A).
+- User can upload original modeling assumptions.
+- User can upload system metadata.
+- User can upload original weather data.
 - Platform executes the performance model.
 - Platform provides a report for download, or returns model output via the API.
 
 #### 1.B. Calculate expected performance {#uc1B}
 {: .anchor}
 
-**Use case narrative**: Using the SPI Performance Model (5.0) with user-provided modeling assumptions,
-user input system metadata (6.0), user-uploaded actual weather data (7.C) and user-selected data quality checks (X.0),
+**Use case narrative**: Using an SPI Performance Model [capability 5]](#uc5) with user-provided modeling assumptions,
+user input system metadata, user-uploaded actual weather data [capability 6](#uc6), and user-selected data quality checks (X.0),
 calculate system output.
 
 **Requirements**:
-- User can upload modeling assumptions (5.0)
-- User can upload system metadata (6.0)
-- User can upload actual weather data (7.C).
+- User can upload modeling assumptions.
+- User can upload system metadata.
+- User can upload actual weather data.
 - User can select data quality checks to be applied to uploaded weather data.
 - Platform applies data quality checks.
 - Platform executes the performance model.
@@ -80,9 +80,9 @@ calculate system output.
 {: .anchor}
 
 **Use case narrative**: Snow and soiling are two key, user-identified external factors that affect
- actual performance and should be accounted for by SPI performance models. The platform should be
- able to accept snow or soiling data, or data from which quantities for modeling snow
- and soiling effects can be inferred (8.0)
+actual performance and should be accounted for by SPI performance models. The platform should be
+able to accept snow or soiling data, or data from which quantities for modeling snow
+and soiling effects can be inferred.
 
 **Requirements**:
 - User uploads snow/soiling data.
@@ -96,13 +96,13 @@ calculate system output.
 
 **Use case narrative**: This use case assumes that the user has the original weather data
 used to predict performance, and has the predicted performance retained from the original simulations
-or has used an SPI model to calculate predicted performance (1.A) from the original weather data.
+or has used an SPI model to calculate predicted performance from the original weather data.
 Comparing actual performance to predicted performance requires adjusting the actual performance for
 the differences between actual weather and the weather conditions assumed for the predicted performance.
 
 **Requirements**:
 - User uploads weather data used for original performance predictions.
-- User uploads recorded predicted performance or selects results of a Predicted Performance run (1.A).
+- User uploads recorded predicted performance or selects results of a Predicted Performance run [1.A](#uc1A).
 - User uploads actual weather and actual performance.
 - Platform adjusts actual performance to the irradiance and temperature of the predicted performance.
 - Platform provides a report for download.
@@ -119,7 +119,7 @@ actual weather and the weather conditions assumed for the predicted performance.
 
 **Requirements**:
 - User uploads weather data used for original performance predictions.
-- User uploads recorded predicted performance or selects results of a Predicted Performance run (1.A).
+- User uploads recorded predicted performance or selects results of a Predicted Performance run [1.A](#uc1A).
 - User uploads actual weather.
 - Platform calculates expected performance from actual weather and user-uploaded system metadata.
 - Platform adjusts expected performance to the irradiance and temperature of the predicted performance.
@@ -160,13 +160,13 @@ can vary in complexity from a simple linear model as described in [1], to PVWatt
 #### 3A. Disaggregate Sources of Performance Differences (stretch) {#uc3A}
 {: .anchor}
 
-**Use case narrative**: In the case where the user has uploaded actual performance data (9.0),
+**Use case narrative**: In the case where the user has uploaded actual performance data,
 determine which factors, e.g. snow and soiling (8.0), module degradation, explain the differences
-between actual performance and original expectations (1.A or 1.B).
+between actual performance and expectations.
 
 ** Requirements**:
-- User uploads data on Actual Performance (8.0).
-- User provides predicted or expected performance, or uses an SPI model to calculate performance (1.A, 1.B).
+- User uploads actual performance data.
+- User provides predicted or expected performance, or uses an SPI model to calculate performance.
 - User specifies comparison period.
 - Platform quantifies differences in performance in each period.
 - Platform identifies potential causes for differences in performance.
