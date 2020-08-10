@@ -165,7 +165,7 @@ can vary in complexity from a simple linear model as described in [1], to PVWatt
 determine which factors, e.g. snow and soiling (8.0), module degradation, explain the differences
 between actual performance and expectations.
 
-** Requirements**:
+**Requirements**:
 - User uploads actual performance data.
 - User provides predicted or expected performance, or uses an SPI model to calculate performance.
 - User specifies comparison period.
