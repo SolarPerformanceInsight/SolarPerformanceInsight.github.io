@@ -64,7 +64,6 @@ user input system metadata, and [user-supplied weather data](#uc6a), calculate s
 #### 1.B. Calculate expected performance {#uc1B}
 {: .anchor}
 
-**Use case narrative**: Using an [SPI Performance Model](#performancemodels) with user-provided modeling assumptions,
 user input system metadata, [user-uploaded actual weather data](#uc6a), and user-selected [data quality checks](#uc6b),
 calculate system output.
 
