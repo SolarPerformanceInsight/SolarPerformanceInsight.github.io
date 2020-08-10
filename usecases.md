@@ -50,8 +50,8 @@ user supplied modeling assumptions and actual weather data.
 #### 1.A. Calculate predicted performance {#uc1A}
 {: .anchor}
 
-**Use case narrative**: Using an [SPI Performance Model] (#performancemodels) with user-provided modeling assumptions,
-user input system metadata, and [user-supplied weather data] (#uc6a), calculate system output.
+**Use case narrative**: Using an [SPI Performance Model](#performancemodels) with user-provided modeling assumptions,
+user input system metadata, and [user-supplied weather data](#uc6a), calculate system output.
 
 **Requirements**:
 
@@ -64,8 +64,7 @@ user input system metadata, and [user-supplied weather data] (#uc6a), calculate 
 #### 1.B. Calculate expected performance {#uc1B}
 {: .anchor}
 
-**Use case narrative**: Using an [SPI Performance Model](#performancemodels) with user-provided modeling assumptions,
-user input system metadata, [user-uploaded actual weather data] (#uc6a), and user-selected [data quality checks](#uc6b),
+user input system metadata, [user-uploaded actual weather data](#uc6a), and user-selected [data quality checks](#uc6b),
 calculate system output.
 
 **Requirements**:
@@ -165,7 +164,7 @@ can vary in complexity from a simple linear model as described in [1], to PVWatt
 determine which factors, e.g. snow and soiling (8.0), module degradation, explain the differences
 between actual performance and expectations.
 
-** Requirements**:
+**Requirements**:
 - User uploads actual performance data.
 - User provides predicted or expected performance, or uses an SPI model to calculate performance.
 - User specifies comparison period.
