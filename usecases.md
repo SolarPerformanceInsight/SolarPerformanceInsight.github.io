@@ -66,7 +66,6 @@ user input system metadata, and [user-supplied weather data](#uc6A), calculate s
 
 **Use case narrative**: Using an [SPI Performance Model](#performancemodels) with user-provided modeling assumptions,
 user input system metadata, [user-uploaded actual weather data](#uc6A), and user-selected [data quality checks](#uc6B),
-calculate system output.
 
 **Requirements**:
 - User can upload modeling assumptions.
