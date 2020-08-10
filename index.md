@@ -20,7 +20,7 @@ community-maintained code. The project will benefit to the solar community throu
 We work directly with industry stakeholders to validate user stories, derive use cases and analytic requirements,
 and test the platform.
 
-# Background and Motivation
+# Project Background and Motivation
 
 A common task in PV Operations and Maintenance (O&M) is to compare actual performance over a period of time
 with modeled performance. Available asset management platforms that provide performance analytics are often
@@ -39,7 +39,7 @@ use cases include:
 -  Compare actual and modeled performance using performance ratios.
 -  Account for snow and soiling in performance models.
 
-In the coming months, the project team will build out capabilities in the [pvlib](https://github.com/pvlib/pvlib-python.git)
+In the coming months, the project team will build out capabilities in the [pvlib-python](https://github.com/pvlib/pvlib-python.git)
 modeling library that support the use cases. The project team will also draft a business plan to ensure that the
 modeling services are available to the industry after the project period has ended.
 
