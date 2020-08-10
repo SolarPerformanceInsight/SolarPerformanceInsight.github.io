@@ -44,6 +44,6 @@ modeling library that support the use cases. The project team will also draft a 
 modeling services are available to the industry after the project period has ended.
 
 # Funding
-See the [funding page](/funding) for more information on the project's funding from the U.S. Department of Energy's
+See the [funding page](/about/funding) for more information on the project's funding from the U.S. Department of Energy's
  Solar Energy Technology Office.
 
