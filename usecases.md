@@ -32,6 +32,7 @@ Platform functional capabilities include:
 7. [Administer the platform](#administer).
 
 ## Definitions
+{: .anchor}
 
 **Predicted performance** refers to PV system energy output using the same modeling assumptions
  and weather data as were used in pre-operational performance projections.
@@ -49,8 +50,8 @@ user supplied modeling assumptions and actual weather data.
 #### 1.A. Calculate predicted performance {#uc1A}
 {: .anchor}
 
-**Use case narrative**: Using an SPI Performance Model [capability 5]](#uc5) with user-provided modeling assumptions,
-user input system metadata, and user supplied weather data [capability 6](#uc6), calculate system output.
+**Use case narrative**: Using an [SPI Performance Model] (#performancemodels) with user-provided modeling assumptions,
+user input system metadata, and [user-supplied weather data] (#uc6a), calculate system output.
 
 **Requirements**:
 
@@ -63,8 +64,8 @@ user input system metadata, and user supplied weather data [capability 6](#uc6),
 #### 1.B. Calculate expected performance {#uc1B}
 {: .anchor}
 
-**Use case narrative**: Using an SPI Performance Model [capability 5]](#uc5) with user-provided modeling assumptions,
-user input system metadata, user-uploaded actual weather data [capability 6](#uc6), and user-selected data quality checks (X.0),
+**Use case narrative**: Using an [SPI Performance Model](#performancemodels) with user-provided modeling assumptions,
+user input system metadata, [user-uploaded actual weather data] (#uc6a), and user-selected [data quality checks](#uc6b),
 calculate system output.
 
 **Requirements**:
@@ -190,7 +191,7 @@ can indicate sensor health and accuracy.
 - Platform provides metric values and visuals of comparison.
 - Platform provides a report for download.
 
-### 4. Perform portfolio analysis (stretch) {#uc4}
+### 4. Perform portfolio analysis (stretch) {#portfolioanalysis}
 {: .anchor}
 
 **Use case narrative**: In order for asset owners/managers and O&M providers to efficiently evaluate portfolios,
@@ -222,7 +223,9 @@ The SAM/CEC performance model will be a stretch goal.
 - The platform supplies functions to execute model chains.
 - Platform houses public databases of equipment and model parameters.
 
-### 6. Upload data {#uploaddata}
+## Upload and check data {#uploaddata}
+
+### 6.A Upload data {#uc6A}
 {: .anchor}
 
 **Narrative**: Users must be able to upload or otherwise specify system metadata, modeling assumptions,
@@ -240,7 +243,23 @@ model parameters and weather data.
 - Users can provide parameters for process models. Where available, the platform provides default values
   for process models.
 - The platform provides available, public databases of module and inverter model parameters.
-- Users can upload weather data.
+- Users can upload weather and power data.
+
+### 6.B Apply data quality checks (stretch) {#uc6B}
+{: .anchor}
+
+**Narrative**: The platform automatically checks user-uploaded weather and power data for quality issues,
+e.g., non-physical values, missing or incorrect timezone, and misaligned sensors, and provides a report
+to the user.
+
+**Requirements**:
+- Users can specify system metadata to include:
+  - location and orientation (tilt, azimuth, tracking)
+  - equipment type and number (inverters, modules)
+  - System layout (number of sub-arrays, string length, strings per inverter)
+- Users can select data quality checks to apply, and specify limits for data values.
+- Users can upload weather and power data.
+- The platform provides a report to the user on data quality issues.
 
 ### 7. Administer the platform {#administer}
 {: .anchor}
