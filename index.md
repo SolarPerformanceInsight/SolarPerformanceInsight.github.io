@@ -33,7 +33,7 @@ modeling tools which are primarily designed to predict future performance, rathe
 
 We have published use cases to guide project development. The [use cases](/usecases) were compiled from input from O&M
 providers, asset owners and managers, and other PV professionals during a special session of SAMNA North America
-(online, April 6-7, 2020) and from members of the [Amicus Solar Cooperative](https://www.amicussolar.com/). Priority
+(online, April 6-7, 2020) and from members of the [Amicus O&M Cooperative](https://www.amicusom.com/). Priority
 use cases include:
 -  Calculate performance from actual weather with user-selected performance models.
 -  Compare actual and modeled performance using performance ratios.
