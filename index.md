@@ -38,7 +38,7 @@ modeling tools which are primarily designed to predict future performance, rathe
 We are beta-testing the Solar Performance Insight tool, and are eager to hear
 your feedback and comments. See above for instructions to get your own account.
 Feedback can be emailed to [info@solarperformanceinsight.org](mailto:info@solarperformanceinsight.org), or join the development
-community at https://github.com/solarperformanceinsight.
+community at [https://github.com/SolarPerformanceInsight/solarperformanceinsight](https://github.com/SolarPerformanceInsight/solarperformanceinsight).
 
 # Funding
 
