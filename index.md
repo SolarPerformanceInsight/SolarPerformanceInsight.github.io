@@ -5,6 +5,7 @@ layout: base
 # Solar Performance Insight
 
 The Solar Performance Insight is an open source tool to enable evaluations of solar power plant performance.
+
 Registered users may log in to the tool at [app.solarperformanceinsight.org](https://app.solarperformanceinsight.org).
 To register, sign the [user agreement](/assets/UArizona_Data_Use_Agreement_Power_Modeling.pdf) and return it to [admin@solarperformanceinsight.org](mailto:admin@solarperformanceinsight.org).
 The SPI administrators will then create a unique user account for you.
@@ -34,20 +35,12 @@ modeling tools which are primarily designed to predict future performance, rathe
 
 # Project News
 
-We have published use cases to guide project development. The [use cases](/usecases) were compiled from input from O&M
-providers, asset owners and managers, and other PV professionals during a special session of SAMNA North America
-(online, April 6-7, 2020) and from members of the [Amicus O&M Cooperative](https://www.amicusom.com/). Priority
-use cases include:
--  Calculate performance from actual weather with user-selected performance models.
--  Compare actual and modeled performance using performance ratios.
--  Account for snow and soiling in performance models.
-
-In the coming months, the project team will build out capabilities in the [pvlib-python](https://github.com/pvlib/pvlib-python.git)
-modeling library that support the use cases. The project team will also draft a business plan to ensure that the
-modeling services are available to the industry after the project period has ended.
+We are beta-testing the Solar Performance Insight tool, and are eager to hear
+your feedback and comments. See above for instructions to get your own account.
+Feedback can be emailed to [info@solarperformanceinsight.org](mailto:info@solarperformanceinsight.org), or join the development
+community at [https://github.com/SolarPerformanceInsight/solarperformanceinsight](https://github.com/SolarPerformanceInsight/solarperformanceinsight).
 
 # Funding
 
 See the [funding page](/about/funding) for more information on the project's funding from the U.S. Department of Energy's
 Solar Energy Technology Office.
-
