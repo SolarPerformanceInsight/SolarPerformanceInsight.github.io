@@ -1,3 +1,15 @@
+- name: Documentation
+  links:
+  - name: Quickstart
+    link: /quickstart/
+  - name: API reference
+    link: /api_reference/
+  - name: Use Cases
+    link: /usecases/
+
+- name: Access the tool
+  link: /access/
+
 - name: About
   links:
   - name: Team
@@ -6,12 +18,6 @@
     link: /about/contact/
   - name: Funding
     link: /about/funding/
-
-- name: Use Cases
-  link: /usecases/
-
-- name: Publications
-  link: /publications/
 
 - name: Participate
   link: /stakeholdercommittee/
