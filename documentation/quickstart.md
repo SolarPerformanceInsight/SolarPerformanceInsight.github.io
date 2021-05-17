@@ -169,14 +169,14 @@ Case 1. When reference data includes DC power and weather, the adjusted referenc
 
 P<sub>AC, adj</sub> = min {P<sub>AC0</sub>, 0.985 P<sub>DC, adj</sub>}
 P<sub>DC, adj</sub> = P<sub>DC, ref</sub> (POA<sub>actual</sub> / POA<sub>ref</sub>) F<sub>tem</sub>
-F<sub>tem</sub> = (1 - &gamma; (T<sub>cell, actual</sub> - 25)) / (1 - &gamma (T<sub>cell, ref</sub> - 25))
+F<sub>tem</sub> = (1 - &gamma; (T<sub>cell, actual</sub> - 25)) / (1 - &gamma; (T<sub>cell, ref</sub> - 25))
 
 P<sub>AC0</sub> is the total AC capacity of the PV and &gamma; is the temperature coefficient of power provided in the PV system metadata. The factor of 0.985 accounts for the DC to AC conversion efficiency.
 
 Case 2. When reference data includes AC power and weather (DC power is not available), the adjusted reference AC power is calculated as
 
 P<sub>AC, adj</sub> = min {P<sub>AC0</sub>, P<sub>AC, ref</sub> (POA<sub>actual</sub> / POA<sub>ref</sub>) F<sub>tem</sub>}
-F<sub>tem</sub> = (1 - &gamma; (T<sub>cell, actual</sub> - 25)) / (1 - &gamma (T<sub>cell, ref</sub> - 25))
+F<sub>tem</sub> = (1 - &gamma; (T<sub>cell, actual</sub> - 25)) / (1 - &gamma; (T<sub>cell, ref</sub> - 25))
 
 Case 3. When reference data includes only weather, Solar Performance Insight first runs the PV system performance model (provided with the system metadata) to estimate P<sub>DC, ref</sub>. Then, adjusted reference AC power is calculated as described above for Case 1.
 
