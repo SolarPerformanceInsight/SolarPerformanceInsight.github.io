@@ -16,10 +16,10 @@ The Solar Performance Insight tool provides both a [Dashboard](#dashboard) and a
 
 After logging in, the Dashboard guides you through the following steps:
 
-1. Define or select the [system] (#definesystem)
+1. Define or select the [system](#definesystem)
 2. Choose a workflow:
-   - [Calculate performance] (#calculateperformance)
-   - [Compare performance] (#compareperformance)
+   - [Calculate performance](#calculateperformance)
+   - [Compare performance](#compareperformance)
 
 ## Systems {#system}
 {: .anchor}
@@ -40,19 +40,15 @@ A PV system is defined by four sets of data:
 
 Solar Performance Insight uses functions from [pvlib](https://github.com/pvlib/pvlib-python.git) to calculate system output consistent with the selected performance model: [pvsyst-like](#pvsyst), [pvwatts](#pvwatts) and [SAM](#SAM).
 
-### Pvsyst {#pvsyst}
+### Pvsyst-like model {#pvsyst}
 {: .anchor}
 
 Calculate system output consistent with the [Pvsyst](https://www.pvsyst.com) software package. The 'pvsyst-like' model includes only those steps in a Pvsyst which are fully and publicly documented. Some differences between Solar Performance Insight and Pvsyst output are to be expected. Users must provide parameters for the module model. Because the Pvsyst inverter model is not fully and publicly documented, Solar Performance Insight substitutes the Sandia Inverter Model that is used in [SAM](#SAM), giving users the option to select inverter parameters from a database.
 
-Calculate system output consistent with the (Pvsyst)[https://www.pvsyst.com] software package. The 'pvsyst-like' model includes only those steps in a Pvsyst which are fully and publicly documented. Some differences between Solar Performance Insight and Pvsyst output are to be expected. Users must provide parameters for the module model. Because the Pvsyst inverter model is not fully and publicly documented, Solar Performance Insight substitutes the Sandia Inverter Model that is used in [SAM](#SAM), giving users the option to select inverter parameters from a database.
-
 ### PVWatts {#pvwatts}
 {: .anchor}
 
-Cacluate system output consistent with the (PVWatts)[https://pvwatts.nrel.gov] application. With the exception of the module temperature model, the 'pvwatts' model calculates system output using the same methods as does the PVWatts website. For the module temperature model, Solar Performance Insight uses the Sandia temperature model in place of a more complex calculation used by PVWatts.
-
-Cacluate system output consistent with the (PVWatts)[https://pvwatts.nrel.gov] application. With the exception of the module temperature model, the 'pvwatts' model calculates system output using the same methods as does the PVWatts website. For the module temperature model, Solar Performance Insight uses the Sandia temperature model in place of a more complex calculation used by PVWatts.
+Calculate system output consistent with the [PVWatts](https://pvwatts.nrel.gov) application. With the exception of the module temperature model, the 'pvwatts' model calculates system output using the same methods as does the PVWatts website. For the module temperature model, Solar Performance Insight uses the Sandia temperature model in place of a more complex calculation used by PVWatts.
 
 ### SAM {#SAM}
 {: .anchor}
@@ -123,7 +119,7 @@ Temperature model parameters are required for the model that calculates module t
 
 This workflow runs the performance model for the system using the weather you upload. Weather includes irradiance and temperature data, and can be uploaded once for the full system, by inverter, or by array.
 
-### Weather Data Upload {#weatherdataupload}
+### Upload Weather Data {#weatherdataupload}
 {: .anchor}
 
 Irradiance data must contain one of the following combinations:
@@ -135,11 +131,11 @@ _Cell temperature_ is the temperature of the cells inside the array's modules. T
 
 _Module temperature_ is the temperature on the outside module surface, and is often measured with an attached temperature sensor. 
 
-If your data doesn't include _module temperature_, you can upload _air temperature_ (and optionally, _wind speed_) and SolarPerformanceInsight will calculate cell temperature using a model.
+If your data doesn't include _module temperature_, you can upload _air temperature_ (and optionally, _wind speed_) and Solar Performance Insight will calculate cell temperature using a model.
 
-Weather data must include a _datetime index_ that is localized to the timezone. Localizing the index to the timezone avoids common pitfalls such as daylight savings hour shifts. SolarPerformanceInsight assumes that the datetime index has a fixed time spacing, in whole minutes.
+Weather data must include a _datetime index_ that is localized to the timezone. Localizing the index to the timezone avoids common pitfalls such as daylight savings hour shifts. Solar Performance Insight assumes that the datetime index has a fixed time spacing, in whole minutes.
 
-After you choose the file containing weather data for upload, SolarPerformanceInsight guides you through matching the columns in the data to the weather variables expected for the calculation.
+After you choose the file containing weather data for upload, Solar Performance Insight guides you through matching the columns in the data to the weather variables expected for the calculation.
 
 When matching is complete, the **Upload Data** button completes the data upload and queues the model calculation.
 
@@ -153,13 +149,13 @@ Results are summarized by month. Summary results include:
 
 Detailed output can be downloaded in CSV or Arrow formats.
 
-SolarPerformanceInsight can make plots of time series of uploaded data and/or model results - click the **New Plot** button.  
+Solar Performance Insight can make plots of time series of uploaded data and/or model results - click the **New Plot** button.  
 
 
 ## Compare Performance {#compareperformance}
 {: .anchor}
 
-This workflow compares actual power (which you upload) to _reference_ or _modeled_ power. _Reference_ power is a record of modeled output from the system, usually done as part of the system design. _Modeled_ power is calculated by SolarPerformanceInsight from the weather data which you upload; see the [Calculate Performance](#calculateperformance) workflow for details.
+This workflow compares actual power (which you upload) to _reference_ or _modeled_ power. _Reference_ power is a record of modeled output from the system, usually done as part of the system design. _Modeled_ power is calculated by Solar Performance Insight from the weather data which you upload; see the [Calculate Performance](#calculateperformance) workflow for details.
 
 ### Compare Actual to Reference Performance
 
@@ -173,33 +169,33 @@ Case 1. When reference data includes DC power and weather, the adjusted referenc
 
 P<sub>AC, adj</sub> = min {P<sub>AC0</sub>, 0.985 P<sub>DC, adj</sub>}
 P<sub>DC, adj</sub> = P<sub>DC, ref</sub> (POA<sub>actual</sub> / POA<sub>ref</sub>) F<sub>tem</sub>
-F<sub>tem</sub> = (1 - &gamma (T<sub>cell, actual</sub> - 25)) / (1 - &gamma (T<sub>cell, ref</sub> - 25))
+F<sub>tem</sub> = (1 - &gamma; (T<sub>cell, actual</sub> - 25)) / (1 - &gamma (T<sub>cell, ref</sub> - 25))
 
-P<sub>AC0</sub> is the total AC capacity of the PV and &gamma is the temperature coefficient of power provided in the PV system metadata. The factor of 0.985 accounts for the DC to AC conversion efficiency.
+P<sub>AC0</sub> is the total AC capacity of the PV and &gamma; is the temperature coefficient of power provided in the PV system metadata. The factor of 0.985 accounts for the DC to AC conversion efficiency.
 
 Case 2. When reference data includes AC power and weather (DC power is not available), the adjusted reference AC power is calculated as
 
 P<sub>AC, adj</sub> = min {P<sub>AC0</sub>, P<sub>AC, ref</sub> (POA<sub>actual</sub> / POA<sub>ref</sub>) F<sub>tem</sub>}
-F<sub>tem</sub> = (1 - &gamma (T<sub>cell, actual</sub> - 25)) / (1 - &gamma (T<sub>cell, ref</sub> - 25))
+F<sub>tem</sub> = (1 - &gamma; (T<sub>cell, actual</sub> - 25)) / (1 - &gamma (T<sub>cell, ref</sub> - 25))
 
-Case 3. When reference data includes only weather, SolarPerformanceInsight first runs the PV system performance model (provided with the system metadata) to estimate P<sub>DC, ref</sub>. Then, adjusted reference AC power is calculated as described above for Case 1.
+Case 3. When reference data includes only weather, Solar Performance Insight first runs the PV system performance model (provided with the system metadata) to estimate P<sub>DC, ref</sub>. Then, adjusted reference AC power is calculated as described above for Case 1.
 
 #### Comparing actual and reference with monthly data
 
 When reference data are at monthly resolution, the weather data must include plane-of-array (POA) insolation POA<sub>ref</sub>, average daytime cell or module temperature T<sub>avg, ref</sub>, and total AC energy E<sub>AC, ref</sub>. The adjusted reference AC energy for each month is calculated by
 
 E<sub>AC, adj</sub> = E<sub>AC, ref</sub> (POA<sub>actual</sub> / POA<sub>ref</sub>) - L<sub>tem</sub>}
-L<sub>tem</sub> = (P<sub>AC0</sub> / 1000) POA<sub>act</sub> &gamma (T<sub>avg, actual</sub> - T<sub>avg, ref</sub>)
+L<sub>tem</sub> = (P<sub>AC0</sub> / 1000) POA<sub>act</sub> &gamma; (T<sub>avg, actual</sub> - T<sub>avg, ref</sub>)
 
 The equation above derives from a simple energy performance model:
 
-E = (P<sub>AC0</sub> / 1000) POA (1 - &gamma (T<sub>avg</sub> - 25)
+E = (P<sub>AC0</sub> / 1000) POA (1 - &gamma; (T<sub>avg</sub> - 25)
 
 
 ### Upload Actual and Reference Performance Data
 
 _Actual_ data includes AC power and actual weather data for the entire system or per inverter. Options for _reference_ data include:
-- weather data only, in which case SolarPerformanceInsight runs the performance model to calculate reference power.
+- weather data only, in which case Solar Performance Insight runs the performance model to calculate reference power.
 - weather and AC power data. In this case, the reference and actual weather data are used to adjust the reference AC power to the actual weather conditions.
 - weather, AC and DC power data. In this case, the reference and actual weather data and the reference DC power are used to adjust the reference AC power to the actual weather conditions.
 
