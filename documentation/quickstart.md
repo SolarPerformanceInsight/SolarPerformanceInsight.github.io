@@ -167,16 +167,34 @@ Comparison calculates the ratio and difference between monthly actual energy and
 
 #### Comparing actual and reference with hourly data
 
-The adjustment of reference power accounts for the differences in irradiance and temperature. At each timestemp, if reference DC power is available, the adjusted reference power is calculated as
+The adjustment of reference power accounts for the differences in irradiance and temperature at each timestemp.
 
-P<sub>AC, adj<\sub> = 0.985 P<sub>DC, adj<\sub>
-P<sub>DC, adj<\sub> = P<sub>DC, ref<\sub> (POA<sub>actual<\sub> / POAPOA<sub>ref<\sub>) F<sub>tem<\sub>
+Case 1. When reference data includes DC power and weather, the adjusted reference AC power is calculated as
 
-The factor of 0.985 accounts for the DC to AC conversion efficiency.
+P<sub>AC, adj</sub> = min {P<sub>AC0</sub>, 0.985 P<sub>DC, adj</sub>}
+P<sub>DC, adj</sub> = P<sub>DC, ref</sub> (POA<sub>actual</sub> / POA<sub>ref</sub>) F<sub>tem</sub>
+F<sub>tem</sub> = (1 - &gamma (T<sub>cell, actual</sub> - 25)) / (1 - &gamma (T<sub>cell, ref</sub> - 25))
 
-Without reference DC power, the adjusted reference power is calculated as
+P<sub>AC0</sub> is the total AC capacity of the PV and &gamma is the temperature coefficient of power provided in the PV system metadata. The factor of 0.985 accounts for the DC to AC conversion efficiency.
 
-#### Comparing actual and reference with hourly data
+Case 2. When reference data includes AC power and weather (DC power is not available), the adjusted reference AC power is calculated as
+
+P<sub>AC, adj</sub> = min {P<sub>AC0</sub>, P<sub>AC, ref</sub> (POA<sub>actual</sub> / POA<sub>ref</sub>) F<sub>tem</sub>}
+F<sub>tem</sub> = (1 - &gamma (T<sub>cell, actual</sub> - 25)) / (1 - &gamma (T<sub>cell, ref</sub> - 25))
+
+Case 3. When reference data includes only weather, SolarPerformanceInsight first runs the PV system performance model (provided with the system metadata) to estimate P<sub>DC, ref</sub>. Then, adjusted reference AC power is calculated as described above for Case 1.
+
+#### Comparing actual and reference with monthly data
+
+When reference data are at monthly resolution, the weather data must include plane-of-array (POA) insolation POA<sub>ref</sub>, average daytime cell or module temperature T<sub>avg, ref</sub>, and total AC energy E<sub>AC, ref</sub>. The adjusted reference AC energy for each month is calculated by
+
+E<sub>AC, adj</sub> = E<sub>AC, ref</sub> (POA<sub>actual</sub> / POA<sub>ref</sub>) - L<sub>tem</sub>}
+L<sub>tem</sub> = (P<sub>AC0</sub> / 1000) POA<sub>act</sub> &gamma (T<sub>avg, actual</sub> - T<sub>avg, ref</sub>)
+
+The equation above derives from a simple energy performance model:
+
+E = (P<sub>AC0</sub> / 1000) POA (1 - &gamma (T<sub>avg</sub> - 25)
+
 
 ### Upload Actual and Reference Performance Data
 
@@ -187,9 +205,6 @@ _Actual_ data includes AC power and actual weather data for the entire system or
 
 See [Upload Weather Data](#weatherdataupload) for data upload details.
 
-### Comparing Actual and Reference Performance Data
-
-Comparison between actual 
 
 ## API {#api}
 {: .anchor}
