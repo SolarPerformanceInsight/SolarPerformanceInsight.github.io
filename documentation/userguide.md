@@ -8,7 +8,7 @@ title: User Guide
 {% include to_top.html %}
 
 
-The Solar Performance Insight tool provides both a [Dashboard](#dashboard) and an [API](#api).
+Solar Performance Insight provides both a [Dashboard](#dashboard) and an [API](#api).
 
 
 ## Dashboard {#dashboard}
