@@ -14,12 +14,15 @@ The Solar Performance Insight tool provides both a [Dashboard](#dashboard) and a
 ## Dashboard {#dashboard}
 {: .anchor}
 
-After logging in, the Dashboard guides you through the following steps:
+The dashboard provides access to Solar Performance Insight capabilities through a browser. After logging in, the Dashboard guides you through the following steps:
 
 1. Define or select the [system](#definesystem)
 2. Choose a workflow:
    - [Calculate performance](#calculateperformance)
    - [Compare performance](#compareperformance)
+
+After the workflow completes, you can plot and download results.
+
 
 ## Systems {#system}
 {: .anchor}
@@ -31,8 +34,8 @@ A PV system is defined by four sets of data:
    - name
    - latitude and longitude. Use decimal degress (e.g., 35.5) without a direction character (e.g. N, E) and use negative longitude for locations west of the prime meridian.
    - elevation above mean sea level in meters
-3. [Inverters] (#inverter). A system can have one or more inverters. The options for inverter parameters depend on the performance model.
-4. [Arrays] (#array). An array is a collection of modules with the same fixed or tracking orientation. One or more arrays can be associated with each inverter. Array parameters depend on the performance model.
+3. [Inverters](#inverter). A system can have one or more inverters. The options for inverter parameters depend on the performance model.
+4. [Arrays](#array). An array is a collection of modules with the same fixed or tracking orientation. One or more arrays can be associated with each inverter. Array parameters depend on the performance model.
 
 
 ## System performance models {#performancemodel}
@@ -133,7 +136,7 @@ _Module temperature_ is the temperature on the outside module surface, and is of
 
 If your data doesn't include _module temperature_, you can upload _air temperature_ (and optionally, _wind speed_) and Solar Performance Insight will calculate cell temperature using a model.
 
-Weather data must include a _datetime index_ that is localized to the timezone. Localizing the index to the timezone avoids common pitfalls such as daylight savings hour shifts. Solar Performance Insight assumes that the datetime index has a fixed time spacing, in whole minutes.
+Weather data must include a _datetime index_ with a fixed time spacing in whole minutes. It is best if the datetime index is localized to the timezone. If the uploaded datetime index is not localized, Solar Performance Insight assumes that times are local to the selected timezone, and localizes the index for you.
 
 After you choose the file containing weather data for upload, Solar Performance Insight guides you through matching the columns in the data to the weather variables expected for the calculation.
 
@@ -159,7 +162,7 @@ This workflow compares actual power (which you upload) to _reference_ or _modele
 
 ### Compare Actual to Reference Performance
 
-Comparison calculates the ratio and difference between monthly actual energy and monthly reference energy that is adjusted for the differences between actual and reference weather. The comparison can be done with data at hourly or better resolution, or using monthly totals.
+The summary results for the Compare workflow are the ratio and difference between monthly actual energy and monthly reference energy that is adjusted for the differences between actual and reference weather. The comparison can be done with data at hourly or better resolution, or using monthly totals.
 
 #### Comparing actual and reference with hourly data
 
@@ -168,7 +171,9 @@ The adjustment of reference power accounts for the differences in irradiance and
 Case 1. When reference data includes DC power and weather, the adjusted reference AC power is calculated as
 
 P<sub>AC, adj</sub> = min {P<sub>AC0</sub>, 0.985 P<sub>DC, adj</sub>}
+
 P<sub>DC, adj</sub> = P<sub>DC, ref</sub> (POA<sub>actual</sub> / POA<sub>ref</sub>) F<sub>tem</sub>
+
 F<sub>tem</sub> = (1 - &gamma; (T<sub>cell, actual</sub> - 25)) / (1 - &gamma; (T<sub>cell, ref</sub> - 25))
 
 P<sub>AC0</sub> is the total AC capacity of the PV and &gamma; is the temperature coefficient of power provided in the PV system metadata. The factor of 0.985 accounts for the DC to AC conversion efficiency.
@@ -176,6 +181,7 @@ P<sub>AC0</sub> is the total AC capacity of the PV and &gamma; is the temperatur
 Case 2. When reference data includes AC power and weather (DC power is not available), the adjusted reference AC power is calculated as
 
 P<sub>AC, adj</sub> = min {P<sub>AC0</sub>, P<sub>AC, ref</sub> (POA<sub>actual</sub> / POA<sub>ref</sub>) F<sub>tem</sub>}
+
 F<sub>tem</sub> = (1 - &gamma; (T<sub>cell, actual</sub> - 25)) / (1 - &gamma; (T<sub>cell, ref</sub> - 25))
 
 Case 3. When reference data includes only weather, Solar Performance Insight first runs the PV system performance model (provided with the system metadata) to estimate P<sub>DC, ref</sub>. Then, adjusted reference AC power is calculated as described above for Case 1.
@@ -185,11 +191,12 @@ Case 3. When reference data includes only weather, Solar Performance Insight fir
 When reference data are at monthly resolution, the weather data must include plane-of-array (POA) insolation POA<sub>ref</sub>, average daytime cell or module temperature T<sub>avg, ref</sub>, and total AC energy E<sub>AC, ref</sub>. The adjusted reference AC energy for each month is calculated by
 
 E<sub>AC, adj</sub> = E<sub>AC, ref</sub> (POA<sub>actual</sub> / POA<sub>ref</sub>) - L<sub>tem</sub>}
+
 L<sub>tem</sub> = (P<sub>AC0</sub> / 1000) POA<sub>act</sub> &gamma; (T<sub>avg, actual</sub> - T<sub>avg, ref</sub>)
 
 The equation above derives from a simple energy performance model:
 
-E = (P<sub>AC0</sub> / 1000) POA (1 - &gamma; (T<sub>avg</sub> - 25)
+E = (P<sub>AC0</sub> / 1000) POA (1 - &gamma; (T<sub>avg</sub> - 25))
 
 
 ### Upload Actual and Reference Performance Data
@@ -204,3 +211,5 @@ See [Upload Weather Data](#weatherdataupload) for data upload details.
 
 ## API {#api}
 {: .anchor}
+
+You can also access the Solar Performance Insight capabilities through its RESTful API. Example python scripts are found [here](https://github.com/SolarPerformanceInsight/SPI-Example-Scripts). For example, you can post json files containing system descriptions, define and post files containing weather data, request job execution and get results. Documentation for the API is located [here](https://app.solarperformanceinsight.org/api/docs).
