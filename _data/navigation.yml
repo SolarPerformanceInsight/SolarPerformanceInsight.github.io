@@ -1,9 +1,9 @@
 - name: Documentation
   links:
-  - name: Quickstart
-    link: /quickstart/
+  - name: User Guide
+    link: /userguide/
   - name: API reference
-    link: /api_reference/
+    link: /https://app.solarperformanceinsight.org/api/docs/
   - name: Use Cases
     link: /usecases/
 
