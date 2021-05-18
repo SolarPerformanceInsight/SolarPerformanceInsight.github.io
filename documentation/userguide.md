@@ -38,29 +38,25 @@ A PV system is defined by four sets of data:
 4. [Arrays](#array). An array is a collection of modules with the same fixed or tracking orientation. One or more arrays can be associated with each inverter. Array parameters depend on the performance model.
 
 
-## System performance models {#performancemodel}
+### System performance models {#performancemodel}
 {: .anchor}
 
 Solar Performance Insight uses functions from [pvlib](https://github.com/pvlib/pvlib-python.git) to calculate system output consistent with the selected performance model: [pvsyst-like](#pvsyst), [pvwatts](#pvwatts) and [SAM](#SAM).
 
-### Pvsyst-like model {#pvsyst}
+#### Pvsyst-like model {#pvsyst}
 {: .anchor}
 
 Calculate system output consistent with the [Pvsyst](https://www.pvsyst.com) software package. The 'pvsyst-like' model includes only those steps in a Pvsyst which are fully and publicly documented. Some differences between Solar Performance Insight and Pvsyst output are to be expected. Users must provide parameters for the module model. Because the Pvsyst inverter model is not fully and publicly documented, Solar Performance Insight substitutes the Sandia Inverter Model that is used in [SAM](#SAM), giving users the option to select inverter parameters from a database.
 
-### PVWatts {#pvwatts}
+#### PVWatts {#pvwatts}
 {: .anchor}
 
 Calculate system output consistent with the [PVWatts](https://pvwatts.nrel.gov) application. With the exception of the module temperature model, the 'pvwatts' model calculates system output using the same methods as does the PVWatts website. For the module temperature model, Solar Performance Insight uses the Sandia temperature model in place of a more complex calculation used by PVWatts.
 
-### SAM {#SAM}
+#### SAM {#SAM}
 {: .anchor}
 
 Calculate system output consistent with the PV performance model in the [System Advisor Model (SAM)](https://sam.nrel.gov). The 'SAM' model calculates system output using many, but not all, of the steps implemented in the SAM application. Users have access to databases of module and inverter model parameters that support the models implemented in SAM.
-
-## System components {#components}
-
-A system is represented by one or more [inverters](#inverter), each with one or more [arrays](#array).
 
 ### Inverters {#inverter}
 
