@@ -3,7 +3,7 @@
   - name: User Guide
     link: /userguide/
   - name: API reference
-    link: /https://app.solarperformanceinsight.org/api/docs/
+    link: https://app.solarperformanceinsight.org/api/docs/
   - name: Use Cases
     link: /usecases/
 

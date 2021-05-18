@@ -1,8 +1,8 @@
 ---
 layout: base
-permalink: /quickstart/
-sidebar: quickstart_sidebar.html
-title: Quickstart
+permalink: /userguide/
+sidebar: userguide_sidebar.html
+title: User Guide
 ---
 
 {% include to_top.html %}
