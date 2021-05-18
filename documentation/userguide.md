@@ -113,6 +113,7 @@ After you choose the file containing weather data for upload, Solar Performance 
 When matching is complete, the **Upload Data** button completes the data upload and queues the model calculation.
 
 ### Calculation Results {#calculationresults}
+{: .anchor}
 
 Results are summarized by month. Summary results include:
 - _Total Energy_ is total electrical energy.
@@ -131,10 +132,12 @@ Solar Performance Insight can make plots of time series of uploaded data and/or 
 This workflow compares actual power (which you upload) to _reference_ or _modeled_ power. _Reference_ power is a record of modeled output from the system, usually done as part of the system design. _Modeled_ power is calculated by Solar Performance Insight from the weather data which you upload; see the [Calculate Performance](#calculateperformance) workflow for details.
 
 ### Compare Actual to Reference Performance {#actualtoreference}
+{: .anchor}
 
 The summary results for the Compare workflow are the ratio and difference between monthly actual energy and monthly reference energy that is adjusted for the differences between actual and reference weather. The comparison can be done with data at hourly or better resolution, or using monthly totals.
 
 #### Comparing actual and reference with hourly data {#comparehourly}
+{: .anchor}
 
 The adjustment of reference power accounts for the differences in irradiance and temperature at each timestemp.
 
@@ -157,6 +160,7 @@ F<sub>tem</sub> = (1 - &gamma; (T<sub>cell, actual</sub> - 25)) / (1 - &gamma; (
 Case 3. When reference data includes only weather, Solar Performance Insight first runs the PV system performance model (provided with the system metadata) to estimate P<sub>DC, ref</sub>. Then, adjusted reference AC power is calculated as described above for Case 1.
 
 #### Comparing actual and reference with monthly data {#comparemonthly}
+{: .anchor}
 
 When reference data are at monthly resolution, the weather data must include plane-of-array (POA) insolation POA<sub>ref</sub>, average daytime cell or module temperature T<sub>avg, ref</sub>, and total AC energy E<sub>AC, ref</sub>. The adjusted reference AC energy for each month is calculated by
 
@@ -170,6 +174,7 @@ E = (P<sub>AC0</sub> / 1000) POA (1 - &gamma; (T<sub>avg</sub> - 25))
 
 
 ### Upload Actual and Reference Data {#uploadactual}
+{: .anchor}
 
 _Actual_ data includes AC power and actual weather data for the entire system or per inverter. Options for _reference_ data include:
 - weather data only, in which case Solar Performance Insight runs the performance model to calculate reference power.
