@@ -16,7 +16,7 @@ Solar Performance Insight provides both a [Dashboard](#dashboard) and an [API](#
 
 The dashboard provides access to Solar Performance Insight capabilities through a browser. After logging in, the Dashboard guides you through the following steps:
 
-1. Define or select the [system](#definesystem)
+1. Define or select the [system](#system)
 2. Choose a workflow:
    - [Calculate performance](#calculateperformance)
    - [Compare performance](#compareperformance)
@@ -58,37 +58,7 @@ Calculate system output consistent with the [PVWatts](https://pvwatts.nrel.gov) 
 
 Calculate system output consistent with the PV performance model in the [System Advisor Model (SAM)](https://sam.nrel.gov). The 'SAM' model calculates system output using many, but not all, of the steps implemented in the SAM application. Users have access to databases of module and inverter model parameters that support the models implemented in SAM.
 
-## System components
-
-A system is represented by one or more [inverters](#inverter), each with one or more [arrays](#array).
-
-### Inverters {#inverter}
-
-Each inverter is assigned a unique name and (optionally) a make and model.
-
-Inverter Parameters are the values needed for the function that calculates output AC power from input DC power and DC voltage. For the 'pvsyst-like' and 'SAM' performance models, the Sandia Inverter Model is used and users have the option to select inverter parameters from a database. For the 'pvwatts' performance model, Solar Performance Insight offers the PVWatts inverter model parameters as default values.
-
-For the 'pvwatts' performance model only, a set of Loss Parameters may be entered. Each parameter is a percentage of AC power lost due to a category of effects (e.g., soiling, snow, mismatch). Solar Performance Insight offers the PVWatts loss factors as default values.
-
-### Arrays {#array}
-
-Each array is assigned a unique name.
-
-Arrays can be Fixed, at constant Tilt and Azimuth, or on Single Axis trackers. Single axis trackers are defined by the tilt and azimuth of the tracker axis. All modules in an array are at the same orientation.
-
-The modules in an array are considered to be arranged in series-connected strings, each string containing the same number of modules. The albedo of the ground surface can be selected from a list of representative values or manually entered.
-
-Module parameters are required for the model that calculates module output. For the [SAM](#SAM) performance model only, a database of module parameters is available.
-
-Temperature model parameters are required for the model that calculates module temperature from weather data. The temperature model is specific to each performance model:
-
-- for 'pvsyst-like', the temperature model is the same as used in Pvsyst.
-- for 'pvwatts', the temperature model is the Sandia model, rather than the more complex calculation used in PVWatts.
-- for 'SAM', the temperature model is the default temperature model in SAM.
-
-Calculate system output consistent with the PV performance model in the [System Advisor Model (SAM)](https://sam.nrel.gov). The 'SAM' model calculates system output using many, but not all, of the steps implemented in the SAM application. Users have access to databases of module and inverter model parameters that support the models implemented in SAM.
-
-## System components
+## System components {#components}
 
 A system is represented by one or more [inverters](#inverter), each with one or more [arrays](#array).
 
@@ -142,7 +112,7 @@ After you choose the file containing weather data for upload, Solar Performance 
 
 When matching is complete, the **Upload Data** button completes the data upload and queues the model calculation.
 
-### Calculation Results
+### Calculation Results {#calculationresults}
 
 Results are summarized by month. Summary results include:
 - _Total Energy_ is total electrical energy.
@@ -160,11 +130,11 @@ Solar Performance Insight can make plots of time series of uploaded data and/or 
 
 This workflow compares actual power (which you upload) to _reference_ or _modeled_ power. _Reference_ power is a record of modeled output from the system, usually done as part of the system design. _Modeled_ power is calculated by Solar Performance Insight from the weather data which you upload; see the [Calculate Performance](#calculateperformance) workflow for details.
 
-### Compare Actual to Reference Performance
+### Compare Actual to Reference Performance {#actualtoreference}
 
 The summary results for the Compare workflow are the ratio and difference between monthly actual energy and monthly reference energy that is adjusted for the differences between actual and reference weather. The comparison can be done with data at hourly or better resolution, or using monthly totals.
 
-#### Comparing actual and reference with hourly data
+#### Comparing actual and reference with hourly data {#comparehourly}
 
 The adjustment of reference power accounts for the differences in irradiance and temperature at each timestemp.
 
@@ -186,7 +156,7 @@ F<sub>tem</sub> = (1 - &gamma; (T<sub>cell, actual</sub> - 25)) / (1 - &gamma; (
 
 Case 3. When reference data includes only weather, Solar Performance Insight first runs the PV system performance model (provided with the system metadata) to estimate P<sub>DC, ref</sub>. Then, adjusted reference AC power is calculated as described above for Case 1.
 
-#### Comparing actual and reference with monthly data
+#### Comparing actual and reference with monthly data {#comparemonthly}
 
 When reference data are at monthly resolution, the weather data must include plane-of-array (POA) insolation POA<sub>ref</sub>, average daytime cell or module temperature T<sub>avg, ref</sub>, and total AC energy E<sub>AC, ref</sub>. The adjusted reference AC energy for each month is calculated by
 
@@ -199,7 +169,7 @@ The equation above derives from a simple energy performance model:
 E = (P<sub>AC0</sub> / 1000) POA (1 - &gamma; (T<sub>avg</sub> - 25))
 
 
-### Upload Actual and Reference Performance Data
+### Upload Actual and Reference Data {#uploadactual}
 
 _Actual_ data includes AC power and actual weather data for the entire system or per inverter. Options for _reference_ data include:
 - weather data only, in which case Solar Performance Insight runs the performance model to calculate reference power.
