@@ -7,7 +7,7 @@ layout: base
 The Solar Performance Insight is an open source tool to enable evaluations of solar power plant performance.
 
 Registered users may log in to the tool at [app.solarperformanceinsight.org](https://app.solarperformanceinsight.org).
-To register, sign the [user agreement](/assets/UArizona_Data_Use_Agreement_Power_Modeling.pdf) and return it to [admin@solarperformanceinsight.org](mailto:admin@solarperformanceinsight.org).
+To register send a message to [techsupport@solarunitedneighbors.org](mailto:techsupport@solarunitedneighbors.org).
 The SPI administrators will then create a unique user account for you.
 
 [Sign up](/emaillist/) to recieve project updates by email.
@@ -38,7 +38,7 @@ modeling tools which are primarily designed to predict future performance, rathe
 We are beta-testing the Solar Performance Insight tool, and are eager to hear
 your feedback and comments. See above for instructions to get your own account.
 
-Feedback can be emailed to [info@solarperformanceinsight.org](mailto:info@solarperformanceinsight.org), or join the development
+Feedback can be emailed to [techsupport@solarunitedneighbors.org](mailto:techsupport@solarunitedneighbors.org), or join the development
 community at [https://github.com/SolarPerformanceInsight/solarperformanceinsight](https://github.com/SolarPerformanceInsight/solarperformanceinsight).
 
 # Funding
