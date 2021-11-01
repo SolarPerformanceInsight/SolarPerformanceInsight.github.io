@@ -6,7 +6,7 @@ title: Funding
 
 # Funding
 
-This work is funded in part or whole by the [U.S. Department of Energy Solar Energy Technologies Office](https://www.energy.gov/solar-office), under Award Number 2019-1944.
+This work was funded in part or whole by the [U.S. Department of Energy Solar Energy Technologies Office](https://www.energy.gov/solar-office), under Award Number 2019-1944.
 View the project summary here: [Solar Performance Insight](https://www.energy.gov/eere/solar/https://www.energy.gov/eere/solar/seto-fy2019-balance-systems-soft-cost-reduction)
 
 ## About the Solar Energy Technologies Office
