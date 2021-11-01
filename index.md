@@ -4,7 +4,8 @@ layout: base
 
 # Solar Performance Insight
 
-The Solar Performance Insight is an open source tool to enable evaluations of solar power plant performance.
+This performance modeling and analytics platform is based on open-source, extensible, community-maintained code. 
+The project benefits the solar community through two primary outcomes.
 
 Registered users may log in to the tool at [app.solarperformanceinsight.org](https://app.solarperformanceinsight.org).
 To register send a message to [techsupport@solarunitedneighbors.org](mailto:techsupport@solarunitedneighbors.org).
@@ -35,8 +36,8 @@ modeling tools which are primarily designed to predict future performance, rathe
 
 # Project News
 
-We are beta-testing the Solar Performance Insight tool, and are eager to hear
-your feedback and comments. See above for instructions to get your own account.
+The Solar Performance Insight tool is live and available for public use. We are eager to hear your feedback and comments. 
+See above for instructions to get your own account.
 
 Feedback can be emailed to [techsupport@solarunitedneighbors.org](mailto:techsupport@solarunitedneighbors.org), or join the development
 community at [https://github.com/SolarPerformanceInsight/solarperformanceinsight](https://github.com/SolarPerformanceInsight/solarperformanceinsight).
